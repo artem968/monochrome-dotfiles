@@ -16,14 +16,14 @@ Scope {
         anchors.fill: parent
         color: "black"
         radius: 15
-        //border.width: 1
-        //border.color: "grey"
+        border.width: 2
+        border.color: "#444444"
       }
 
       margins {
         top: 4
-        right: 4
-        left:4
+        right: 18
+        left: 18
       }
 
       anchors {
@@ -36,10 +36,28 @@ Scope {
 
       // Workspace indicator on the left
       WorkspaceIndicator {
+        id: wsIndicator
         anchors.left: parent.left
         anchors.verticalCenter: parent.verticalCenter
         anchors.margins: 6
       }
+
+      SystemMonitor {
+        anchors.left: wsIndicator.right
+        anchors.leftMargin: 6
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.margins: 6
+      }
+
+      //Row {
+      //    anchors.left: parent.left
+      //    //anchors.verticalCenter: parent.verticalCenter
+      //    spacing: 12
+      //    Layout.alignment: Qt.AlignVCenter   // ensures children are vertically centered
+      //
+      //    WorkspaceIndicator {}
+      //    SystemMonitor {}
+      //}
 
       // Clock in the center
       ClockWidget {

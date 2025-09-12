@@ -8,4 +8,6 @@ Text {
   text: Time.time
 
   color: "white"
+
+  font.family: "JetBrainsMono Nerd Font"
 }

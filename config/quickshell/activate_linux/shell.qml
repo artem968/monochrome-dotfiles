@@ -15,7 +15,7 @@ ShellRoot {
 			screen: modelData
 
 			anchors {
-				left: true
+				right: true
 				bottom: true
 			}
 
@@ -50,12 +50,6 @@ ShellRoot {
 					color: "#50ffffff"
 					font.pointSize: 14
 				}
-
-        Text {
-          text: "wait wtf"
-					color: "#50ffffff"
-					font.pointSize: 12
-        }
 			}
 		}
 	}

@@ -1,17 +1,4 @@
 return {
-    -- Black-metal Marduk theme
-    {
-        "metalelf0/black-metal-theme-neovim",
-        lazy = false,
-        priority = 1000,
-        config = function()
-            require("black-metal").setup({
-                theme = "marduk",
-                transparent = false,
-            })
-            require("black-metal").load()
-        end,
-    },
 
     -- Icons
     {
@@ -137,5 +124,27 @@ return {
             vim.keymap.set("n", "<S-l>", ":BufferLineCycleNext<CR>", { desc = "Next Buffer" })
             vim.keymap.set("n", "<S-h>", ":BufferLineCyclePrev<CR>", { desc = "Previous Buffer" })
         end
+    },
+
+    {
+        "lukas-reineke/indent-blankline.nvim",
+        main = "ibl",
+        event = { "BufReadPost", "BufNewFile" },
+        config = function()
+            local highlight_color = "#333333" -- subtle grey bar
+    
+            require("ibl").setup({
+                indent = {
+                    char = "│",         -- vertical bar
+                    highlight = "IblIndent",
+                },
+                scope = {
+                    enabled = false,    -- disable current scope highlight for cleaner look
+                },
+            })
+    
+            -- Define monochrome highlight for indent guides
+            vim.cmd(string.format("highlight IblIndent guifg=%s gui=nocombine", highlight_color))
+        end,
     },
 }

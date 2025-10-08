@@ -18,7 +18,7 @@ return {
         lazy = false,
         config = function()
             require("mason-lspconfig").setup({
-                ensure_installed = { "pyright", "tsserver", "lua_ls" }, -- add servers you need
+                ensure_installed = { "pyright", "lua_ls" }, -- add servers you need
             })
         end,
     },

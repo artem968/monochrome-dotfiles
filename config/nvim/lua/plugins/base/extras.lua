@@ -15,6 +15,7 @@ return {
         event = "VeryLazy",
         config = function()
             require("which-key").setup({
+                notify = false,
                 plugins = {
                     spelling = true, -- optional
                 },

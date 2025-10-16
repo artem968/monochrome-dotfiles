@@ -15,6 +15,7 @@ require("lazy").setup({
     spec = {
         -- Core base plugins (UI, LSP, tools)
         { import = "plugins.base" },
+        { import = "plugins.base.debug" },
 
         -- Extra plugins (optional, including alpha)
         { import = "plugins.extra" },

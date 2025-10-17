@@ -34,21 +34,20 @@ return {
                 request = "launch",
                 program = function()
                     local root = find_project_root()
-                
-                    -- Build the project
-                    local build_cmd = "dotnet build " .. root
-                    vim.fn.system(build_cmd)
-                
-                    -- Look for the compiled DLL (first found)
+                    vim.fn.system("dotnet build " .. root)
                     local dll = vim.fn.glob(root .. "/bin/Debug/**/*.dll")
                     if dll == "" then
-                        -- fallback: ask user for path
                         return vim.fn.input("Path to DLL: ", root .. "/bin/Debug/", "file")
                     end
                     return dll
                 end,
+                console = "integratedTerminal",
             },
         }
+        
+        dap.listeners.after.event_initialized["repl_open"] = function()
+            require("dap.repl").open()
+        end
 
         -- === Keymaps for actual use ===
         local map = vim.keymap.set
